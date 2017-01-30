@@ -1,3 +1,7 @@
 <h2><%= @post.title %></h2>
+<nav>
+	<%= link_to fa_icon("arrow-circle-left 5x", class: "nav-button left"), "/posts/#{@post.id - 1}" %>
+	<%= link_to fa_icon("arrow-circle-right 5x", class: "nav-button right"), "/posts/#{@post.id + 1}" %>
+</nav>
 <%= image_tag @image.url %>
 <p class='description'><%= @post.description %></p>
