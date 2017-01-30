@@ -6,8 +6,8 @@ $(function() {
 });
 
 triggerImageChange = function(e) {
-  if (e.keyCode === 37) {
-    console.log('left');
+  if (e.keyCode === 37 && !e.altKey) {
+    getImage(-1);
   }
   if (e.keyCode === 39) {
     return console.log('right');
@@ -15,5 +15,7 @@ triggerImageChange = function(e) {
 };
 
 getImage = function(delta) {
-  return $.get('/posts/');
+  return $.get("/posts/" + ($('#photo').data().id + delta)).done(function(e) {
+    return $('body').html(e);
+  });
 };

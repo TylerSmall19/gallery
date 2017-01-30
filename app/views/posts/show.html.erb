@@ -3,5 +3,7 @@
 	<%= link_to fa_icon("arrow-circle-left 5x", class: "nav-button left"), "/posts/#{@post.id - 1}" %>
 	<%= link_to fa_icon("arrow-circle-right 5x", class: "nav-button right"), "/posts/#{@post.id + 1}" %>
 </nav>
-<%= image_tag @image.url %>
+<span id='photo' data-id='<%= @post.id %>'>
+	<%= image_tag @image.url %>
+</span>
 <p class='description'><%= @post.description %></p>
