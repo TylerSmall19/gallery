@@ -17,10 +17,10 @@ class PostsController < ApplicationController
   	post = Post.new(post_params)
     p post
   	if post.save
-      @image = post.photo
   		redirect_to post
   	else
   		@errors = post.errors.full_messages
+      p @errors
   		render :new
   	end
   end
