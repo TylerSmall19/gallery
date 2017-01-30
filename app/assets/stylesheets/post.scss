@@ -1,12 +1,15 @@
 // Place all the styles related to the post controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'font-awesome';
+
 body {
 	background: black;
 	width: 100%;
 }
 
 .container {
+	position: relative;
 	width: 850px;
 	margin: 0 auto;
 	text-align: center;
@@ -20,4 +23,22 @@ body {
 
 .error-text:before {
 	content: '* ';
+}
+
+.nav-button {
+	color: black;
+}
+
+.left, .right {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.left {
+	left: 7px;
+}
+
+.right {
+	right: 7px;
 }
