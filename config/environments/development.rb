@@ -41,4 +41,5 @@ Rails.application.configure do
 
   # Setup Paperclip options
   Paperclip.options[:command_path] = '/c/Windows/system32/convert'
+  Paperclip.options[:command_path] = 'C:\Program Files (x86)\GnuWin32\bin'
 end
