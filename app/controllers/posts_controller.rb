@@ -4,7 +4,8 @@ class PostsController < ApplicationController
 
   def show
     begin
-      @image = Post.find_by(id: params[:id]).photo
+      @post = Post.find(params[:id])
+      @image = @post.photo
     rescue
       redirect_to new_post_path
     end
