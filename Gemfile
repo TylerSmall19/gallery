@@ -33,6 +33,9 @@ gem 'bcrypt', '~> 3.1.7'
 # Use PaperClip to handle file attachment
 gem "paperclip", "~> 5.0.0"
 
+# Important Font Awesome
+gem "font-awesome-rails"
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
