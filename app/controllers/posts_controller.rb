@@ -3,18 +3,22 @@ class PostsController < ApplicationController
   end
 
   def show
-    @image = Post.find_by(id: params[:id]).photo
+    begin
+      @image = Post.find_by(id: params[:id]).photo
+    rescue
+      redirect_to new_post_path
+    end
   end
 
   def index
   end
 
   def create
-  	post = Post.create!(post_params)
+  	post = Post.new(post_params)
     p post
   	if post.save
       @image = post.photo
-  		render :show
+  		redirect_to post
   	else
   		@errors = post.errors.full_messages
   		render :new

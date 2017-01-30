@@ -1,5 +1,6 @@
 <% if @errors %>
 	<%= render @errors %>
 <% end %>
+
 <p>Find me in app/views/post/new.html.erb</p>
 <%= render partial: "shared/post_form", locals: { post: Post.new } %>
