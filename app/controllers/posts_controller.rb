@@ -3,11 +3,18 @@ class PostsController < ApplicationController
   end
 
   def show
-    begin
-      @post = Post.find(params[:id])
+    @post = Post.find_by(id: params[:id])
+    if @post
       @image = @post.photo
-    rescue
-      redirect_to new_post_path
+      if request.xhr?
+        render :show, layout: false
+      end
+    else
+      if request.xhr?
+        render :out_of_images, layout: false
+      else
+        redirect_to new_post_path
+      end
     end
   end
 
