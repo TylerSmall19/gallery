@@ -6,14 +6,18 @@ $(function() {
 });
 
 triggerImageChange = function(e) {
-  if (e.keyCode === 37) {
-    console.log('left');
-  }
-  if (e.keyCode === 39) {
-    return console.log('right');
+  if (!e.altKey && $('#photo').length > 0) {
+    if (e.keyCode === 37) {
+      getImage(-1);
+    }
+    if (e.keyCode === 39) {
+      return getImage(+1);
+    }
   }
 };
 
 getImage = function(delta) {
-  return $.get('/posts/');
+  return $.get("/posts/" + ($('#photo').data().id + delta)).done(function(e) {
+    return $('.container').html(e);
+  });
 };

@@ -5,8 +5,12 @@ $ ->
 	$('html').on 'keyup', triggerImageChange
 
 triggerImageChange = (e) ->
-	console.log('left') if e.keyCode == 37
-	console.log('right') if e.keyCode == 39
+	if !e.altKey && $('#photo').length > 0
+		getImage -1 if e.keyCode == 37 
+		getImage +1 if e.keyCode == 39
 
 getImage = (delta) ->
-	$.get '/posts/'
+	# Change the photo being fetched.
+	$.get "/posts/#{$('#photo').data().id + delta}"
+	.done (e) ->
+		$('.container').html e
